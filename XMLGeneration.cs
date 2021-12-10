@@ -67,12 +67,12 @@ namespace WindowsFormsApp1
         }
         public void write()
         {
-            ds.WriteXml("check.xml", XmlWriteMode.WriteSchema);
+            ds.WriteXml("cheсk.xml", XmlWriteMode.WriteSchema);
         }
         public DataSet read()
         {
             DataSet readDataSet = new DataSet();
-            readDataSet.ReadXml("check.xml", XmlReadMode.ReadSchema);
+            readDataSet.ReadXml("cheсk.xml", XmlReadMode.ReadSchema);
             return readDataSet;
         }
 
