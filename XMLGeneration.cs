@@ -33,8 +33,6 @@ namespace WindowsFormsApp1
             ds.Tables["ЗаписьЧека"].Columns.Add(new DataColumn("Товар", Type.GetType("System.String")));
             ds.Tables["ЗаписьЧека"].Columns.Add(new DataColumn("ЦенаТовара", Type.GetType("System.Int32")));
             ds.Tables["ЗаписьЧека"].Columns.Add(new DataColumn("Количество", Type.GetType("System.Int32")));
-
-
             ds.Tables["ЗаписьЧека"].Columns.Add(new DataColumn("Стоимость", Type.GetType("System.Int32")));
 
             ds.Tables["ЗаписьЧека"].PrimaryKey = new DataColumn[3]

@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data;
+using System.IO;
 
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
         XMLGeneration XMLTables;
+        public DataSet FormData;
         public Form1()
         {
             InitializeComponent();
             XMLTables = new XMLGeneration();
+            if (!(File.Exists("check.xml")))
+            {
+                XMLTables.generate();
+                XMLTables.write();
+            }
+            
+            FormData = XMLTables.read();
+            dataGridView1.DataSource = FormData.Tables["Чеки"];
+            
         }
 
 
@@ -20,20 +31,9 @@ namespace WindowsFormsApp1
            
         }
 
-        private void buttonWrite_Click(object sender, EventArgs e)
+        private void addCheck_Click(object sender, EventArgs e)
         {
-            XMLTables.write();
-        }
 
-        private void buttonGenerate_Click(object sender, EventArgs e)
-        {
-            XMLTables.generate();  
-        }
-
-        private void buttonRead_Click(object sender, EventArgs e)
-        {
-            DataSet a = XMLTables.read();
-            dataGridView1.DataSource = a.Tables["Чеки"];
         }
     }
 }
